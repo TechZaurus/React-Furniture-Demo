@@ -1,5 +1,5 @@
-# React-Furniture-Demo
-Web app demo product page of a furniture shop. Simple functionality include rotating a product, choosing its color, choosing quantity and adding it to cart.
+# React-Real-Estate-Demo
+Web app demo of a real estate website. A sample project to set up architectural practices, React libraries and code structure.  
 
 # Tech Stack
 React, Vite, Prettier, Husky (to be continued)
