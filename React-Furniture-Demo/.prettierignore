@@ -1,7 +1,0 @@
-public
-node_modules
-.gitignore
-bun.lockdb
-README.md
-index.html
-.eslint.cjs
