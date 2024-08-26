@@ -1,11 +1,13 @@
 import FullscreenSection from './components/Layout/FullscreenSection/FullscreenSection';
 import backgroundImage from './assets/images/main_image.jpg'
+import TextBox from './components/Text/TextBox/TextBox';
+
 
 function App() {
   return (
     <>
       <FullscreenSection backgroundSrc={backgroundImage} blurBackground={false}>
-        <h1>Text</h1>
+        <TextBox>Text</TextBox>
       </FullscreenSection>
     </>
   );
