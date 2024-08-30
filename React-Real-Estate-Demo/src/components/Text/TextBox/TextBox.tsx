@@ -1,23 +1,32 @@
-import { styled } from '@pigment-css/react';
-import { ThemeArgs } from '@pigment-css/react/theme';
-//import { ReactElement } from 'react';
+import { useContext } from 'react';
+import { FontToken, ThemeContext } from '../../../theme/ThemeContext';
 
 interface Props {
   children?: string;
-  // TODO: create types (header, main)
-  isHeader?: boolean;
+  fontFamily?: string;
+  paddingVertical?: string;
+  paddingHorizontal?: string;
+  fontSize?: FontToken;
 }
 
-const HeaderStyledDiv = styled('div')(({ theme } :  ThemeArgs) => ({
-  fontFamily: theme.typography.headerFontFamily,
-}));
-
-const MainStyledDiv = styled('div')(({ theme } : ThemeArgs) => ({
-  fontFamily: theme.typography.mainFontFamily,
-}));
-
-const TextBox: React.FC<Props> = ({ children, isHeader }) => {
-  return isHeader ? <HeaderStyledDiv>{children}</HeaderStyledDiv> : <MainStyledDiv>{children}</MainStyledDiv>;
+//TODO: expand colors, write tests
+const TextBox: React.FC<Props> = ({ children, fontFamily, paddingHorizontal, paddingVertical, fontSize }) => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <div
+      style={{
+        fontFamily: fontFamily == undefined ? theme.typography.mainFontFamily : fontFamily,
+        paddingLeft: paddingHorizontal == undefined ? 0 : paddingHorizontal,
+        paddingRight: paddingHorizontal == undefined ? 0 : paddingHorizontal,
+        paddingTop: paddingVertical == undefined ? 0 : paddingVertical,
+        paddingBottom: paddingVertical == undefined ? 0 : paddingVertical,
+        fontSize: fontSize == undefined ? theme.fontSize.medium : theme.fontSize[fontSize],
+        color: theme.colors.textColor
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default TextBox;
