@@ -3,7 +3,7 @@ import styles from './FullscreenSection.module.css';
 
 interface Props extends PropsWithChildren {
   backgroundSrc: string;
-  blurBackground: boolean;
+  blurBackground?: boolean;
   children?: ReactNode;
 }
 
@@ -14,7 +14,7 @@ const FullscreenSection: React.FC<Props> = ({ backgroundSrc, blurBackground, chi
       id={styles['Fullscreen']}
       style={{ backgroundImage: 'url(' + backgroundSrc + ')' }}
     >
-      {blurBackground ? (
+      {blurBackground != undefined && blurBackground ? (
         <div
           data-testid="blur_div"
           className={styles.Blur}
